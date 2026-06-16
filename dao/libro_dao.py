@@ -10,7 +10,7 @@ class LibroDAO:
 
     #select * from libro
     def obtener_todos(self):
-        conexion = Conexion.Obtener_conexion()
+        conexion = Conexion.obtener_conexion()
         cursor = conexion.cursor()
 
         cursor.execute("SELECT * FROM libro")

@@ -2,13 +2,23 @@ from dao.libro_dao import LibroDAO
 from models.libro import Libro
 
 def main():
-    libro_dao = LibroDAO()
+    try:
+        libro_dao = LibroDAO()
+        
+        libros = libro_dao.obtener_todos()
+        
+        print("=== Libros en la biblioteca ===")
+        if len(libros) == 0:
+            print("No hay libros disponibles.")
+        else:
+            for libro in libros:
+                print(f"ID: {libro.id}, Título: {libro.titulo}, Autor: {libro.autor}, ISBN: {libro.isbn}, Disponible: {'Si' if libro.disponible else 'No'}")
+        
+        print("\n conexion exitosa a la base de datos")
     
-    libros = libro_dao.obtener_todos()
-    
-    print("=== Libros en la biblioteca ===")
-    if len(libros) == 0:
-        print("No hay libros disponibles.")
-    else:
-        for libro in libros:
-            print(f"ID: {libro.id}, Título: {libro.titulo}, Autor: {libro.autor}, ISBN: {libro.isbn}, Disponible: {'Si' if libro.disponible else 'No'}")
+    except Exception as e:
+        print("Error:")
+        print(e)
+        
+if __name__ =="__main__":
+    main()
