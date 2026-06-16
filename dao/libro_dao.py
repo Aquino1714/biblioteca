@@ -2,7 +2,7 @@
 # libro_dao :Objeto de acceso a datos de la tabla libro
 
 from database import conexion
-
+from database.conexion import Conexion
 from models.libro import Libro
 
 
