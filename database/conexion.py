@@ -3,6 +3,8 @@ import psycopg2
 
 from dotenv import load_dotenv
 
+load_dotenv()  # Carga las variables de entorno desde el archivo .env
+
 class Conexion:
     
     @staticmethod
