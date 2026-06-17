@@ -19,7 +19,12 @@ class LibroDAO:
 
         libros = []
         for registro in registros:
-            libro = Libro(registro.id, registro.titulo, registro.autor, registro.isbn, registro.disponible)
+            libro = Libro()
+            libro.id = registro[0]
+            libro.titulo = registro[1]
+            libro.autor = registro[2]
+            libro.isbn = registro[3]
+            libro.disponible = registro[4]
             libros.append(libro)
 
         cursor.close()
