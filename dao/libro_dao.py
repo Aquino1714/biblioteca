@@ -53,7 +53,7 @@ class LibroDAO:
         VALUES (%s, %s, %s, %s, %s)
         """
 
-        cursor.execute(sql, (libro.titulo, libro.autor, libro.isbn, libro.disponible))
+        cursor.execute(sql, (libro.id, libro.titulo, libro.autor, libro.isbn, libro.disponible))
         
         conexion.commit()
         cursor.close(), 
