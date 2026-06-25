@@ -54,11 +54,28 @@ def main():
             insertar_libro()
         case "3":
             actualizar_libro()
-        case "4":
-            eliminar_libro()
+        #case "4":
+            #eliminar_libro()
         case _:
             print("Opción no válida. Por favor, seleccione una opción del 1 al 4.")
 
+def actualizar_libro():
+    print("Selecciona el libro a actializar")
+    try:
+        libro_dao = LibroDAO()
+        ver_libros()
+        id = int(input("Ingrese el id del libro a actualizar: "))
+        titulo = input("Ingrese el nuevo título del libro: ")
+        autor = input("Ingrese el nuevo autor disponible: ")
+        isbn = input("Ingrese el nuevo ISBN del libro: ")
+        disponible = bool(input("Ingrese True para disponible, False para no disponible: "))
+        libro = Libro(id, titulo, autor, isbn, disponible)
+        libro_dao.actualizar(libro)
+        print(f"Libro con ID {id} actualizado exitosamente.")
+
+    except Exception as e:
+        print("Error al actualizar el libro")
+        print(e)
 
 if __name__ =="__main__":
-    main()
+    main()  

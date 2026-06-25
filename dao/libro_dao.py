@@ -84,7 +84,7 @@ class LibroDAO:
                             (libro_id,))
             
             conexion.commit()
-            cursor.close()
+            cursor.close() 
             conexion.close()
 
     def obtener_ultimo_id(self):
