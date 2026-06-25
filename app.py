@@ -36,7 +36,18 @@ def insertar_libro():
         print("Error al insertar el libro:")
         print(e)
 
-
+def eliminar_libro():
+    try:
+        libro_dao = LibroDAO()
+        print("Lista de libros disponibles: ")
+        ver_libros()
+        id = int(input("Escribe el id del libro a eliminal: "))
+        libro_dao.eliminar(id)
+        print(f"El libro {id} ha sido eliminado con éxito")
+    
+    except Exception as e:
+        print("Error al eliminar el libro {id}")
+        print(e)
 
 def main():
     print("==================Biblioteca universitaria==========================")
@@ -54,8 +65,8 @@ def main():
             insertar_libro()
         case "3":
             actualizar_libro()
-        #case "4":
-            #eliminar_libro()
+        case "4":
+            eliminar_libro()
         case _:
             print("Opción no válida. Por favor, seleccione una opción del 1 al 4.")
 
