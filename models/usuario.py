@@ -4,11 +4,12 @@ import email
 class Usuario: 
     
     # Constructor de la clase Usuario
-    def __init__(self, id_usuario, nombre, email, carrera):
-        self.id_usuario = id_usuario
+    def __init__(self, id, nombre, matricula, carrera, correo):
+        self.id = id
         self.nombre = nombre
-        self.email = email
+        self.matricula = matricula
         self.carrera = carrera
+        self.correo = correo
         self.actuvo = True #Por defecto, el usario esta activo
 
     def activar(self):

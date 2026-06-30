@@ -76,16 +76,16 @@ class LibroDAO:
         cursor.close()
         conexion.close()
 
-        def eliminar(self, libro_id):
-            conexion = Conexion.obtener_conexion()
-            cursor = conexion.cursor()
+    def eliminar(self, libro_id):
+        conexion = Conexion.obtener_conexion()
+        cursor = conexion.cursor()
 
-            cursor.execute ("DELETE FROM libro WHERE id = %s",
-                            (libro_id,))
+        cursor.execute ("DELETE FROM libro WHERE id = %s",
+                        (libro_id,))
             
-            conexion.commit()
-            cursor.close() 
-            conexion.close()
+        conexion.commit()
+        cursor.close() 
+        conexion.close()
 
     def obtener_ultimo_id(self):
         conexion = Conexion.obtener_conexion()
