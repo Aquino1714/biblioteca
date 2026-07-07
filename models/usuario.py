@@ -1,6 +1,3 @@
-import email
-
-
 class Usuario: 
     
     # Constructor de la clase Usuario
@@ -18,4 +15,4 @@ class Usuario:
     def desactivar(self):
         self.activo = False
     
-    def mostrar_info(self): return f"Ususario Id: {self.id_usuario}, Nombre: {self.nombre}, Email:{self.email}, Carrera: {self.carrera}, Activo: {'Si' if self.activo else 'No'}"
+    def mostrar_info(self): return f"Usuario Id: {self.id}, Nombre: {self.nombre}, Email:{self.correo}, Carrera: {self.carrera}, Activo: {'Si' if self.activo else 'No'}"
