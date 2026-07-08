@@ -3,7 +3,8 @@ from models.libro import Libro
 from dao.usuario_dao import UsuarioDAO
 from models.usuario import Usuario
 
-
+import flet as ft
+from ui.main_window import main_window
 
 def ver_libros():
     try:
@@ -211,4 +212,4 @@ def actualizar_libro():
         print(e)
 
 if __name__ =="__main__":
-    main()  
+    ft.run(main_window)
