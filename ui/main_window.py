@@ -5,7 +5,7 @@ def main_window(page: ft.Page):
     page.window_width = 1100
     page.window_height = 700
     page.padding = 0
-    page.bgcolor = ft.colors.WHITE
+    page.bgcolor = ft.Colors.WHITE
 
     # Ejemplo de witget
     titulo = ft.Text("Sistema de Biblioteca Universitaria",
@@ -30,12 +30,12 @@ def main_window(page: ft.Page):
         ),
         padding = 30,
         expand = True,
-        bgcolor = ft.colors.WHITE
+        bgcolor = ft.Colors.WHITE
     )
 
     manu_lateral = ft.Container (
         width = 220,
-        bgcolor = ft.colors.WHITE,
+        bgcolor = ft.Colors.BLUE_GREY_100,
         padding = 20,
         content = ft.Column (
             controls = [
@@ -47,29 +47,29 @@ def main_window(page: ft.Page):
                 ),
                 ft.Text (
                     "Sistema de gestión",
-                    soze = 12,
+                    size = 12,
                     color = ft.Colors.BLUE_GREY_100
                 ),
                 
                 ft.Divider (color = ft.Colors.BLUE_GREY_700),
                 
                 ft.ElevatedButton (
-                    text = "libros",
+                    "libros",
                     icon = ft.Icons.BOOK,
                     width = 180,
                 ),
                 ft.ElevatedButton (
-                    text = "usuarios",
-                    icon = ft.Icons.USER,
+                    "usuarios",
+                    icon = ft.Icons.PERSON_OUTLINE,
                     width = 180,
                 ),
                 ft.ElevatedButton (
-                    text = "prestamos",
+                    "prestamos",
                     icon = ft.Icons.SWAP_HORIZ,
                     width = 180,
                 ),
                 ft.ElevatedButton (
-                    text = "devoluciones",
+                    "devoluciones",
                     icon = ft.Icons.KEYBOARD_RETURN,
                     width = 180,
                 ),

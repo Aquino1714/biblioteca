@@ -1,3 +1,5 @@
+import flet as ft
+
 from dao.libro_dao import LibroDAO
 from models.libro import Libro
 from dao.usuario_dao import UsuarioDAO
@@ -159,39 +161,39 @@ def menu_libro():
         case _:
             print("Opción no válida. Por favor, seleccione una opción del 1 al 4.")
 
-def menu_usuario():
-    print("1. Ver usuarios")
-    print("2. Agregar usuario")
-    print("3. Actualizar usuario")
-    print("4. Eliminar usuario")
+# def menu_usuario():
+#     print("1. Ver usuarios")
+#     print("2. Agregar usuario")
+#     print("3. Actualizar usuario")
+#     print("4. Eliminar usuario")
     
-    opcion = input("Seleccione una opción (1-4): ")
-    match opcion:
-        case "1":
-            ver_usuarios()
-        case "2":
-            insertar_usuario()
-        case "3":
-            actualizar_usuario()
-        case "4":
-            eliminar_usuario()
-        case _:
-            print("Opción no válida. Por favor, seleccione una opción del 1 al 4.")
+#     opcion = input("Seleccione una opción (1-4): ")
+#     match opcion:
+#         case "1":
+#             ver_usuarios()
+#         case "2":
+#             insertar_usuario()
+#         case "3":
+#             actualizar_usuario()
+#         case "4":
+#             eliminar_usuario()
+#         case _:
+#             print("Opción no válida. Por favor, seleccione una opción del 1 al 4.")
 
-def main():
-    print("==================Biblioteca universitaria==========================")
-    print("Menu de opciones")
-    print("1. Libros")
-    print("2. Usuarios")
+#def main():
+#    print("==================Biblioteca universitaria==========================")
+#    print("Menu de opciones")
+#    print("1. Libros")
+#    print("2. Usuarios")
     
-    opcion = input("Seleccione una opción (1-2): ")
-    match opcion:
-        case "1":
-            menu_libro()
-        case "2":
-            menu_usuario()
-        case _:
-            print("Opción no válida. Por favor, seleccione una opción del 1 al 2.")
+    # opcion = input("Seleccione una opción (1-2): ")
+    # match opcion:
+    #     case "1":
+    #         menu_libro()
+    #     case "2":
+    #         menu_usuario()
+    #     case _:
+    #         print("Opción no válida. Por favor, seleccione una opción del 1 al 2.")
 
 def actualizar_libro():
     print("Selecciona el libro a actializar")
@@ -211,5 +213,4 @@ def actualizar_libro():
         print("Error al actualizar el libro")
         print(e)
 
-if __name__ =="__main__":
-    ft.run(main_window)
+ft.app(target = main_window)
