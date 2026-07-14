@@ -1,30 +1,59 @@
 import flet as ft
 
 def libro_form():
-    
-    
-    
-    
-    
-    
-    mensaje = ft.Text (
-        "",
-        color = ft.Colors.GREEN
+    titulo_input = ft.TextField(
+        label = "Titulo del libro:",
+        width = 400
     )
     
+    autor_input = ft.TextField(
+        label = "Autor del libro:",
+        width = 400
+    )
+    
+    isbn_input = ft.TextField (
+        label = "ISBN del libro:",
+        width = 400
+    )
+    
+    mensaje = ft.Text(
+        "",
+        color = ft.Colors.GREEN,
+    )
+
+    def guardar_libro(e):
+        titulo = titulo_input.value
+        autor = autor_input.value
+        isbn = isbn_input.value
+        
+        if not titulo == "" or autor == "" or  isbn == "":
+            mensaje.value = "Por favor, complete todos los campos."
+            mensaje.color = ft.Colors.RED
+        else:
+            mensaje.value = f"Libro '{titulo}' listo para insertar"
+            print(f"Titulo: {titulo}, Autor: {autor}, ISBN: {isbn}")
+            mensaje.color = ft.Colors.GREEN
+            
+            # Limpiar los campos después de guardar
+            titulo_input.value = ""
+            autor_input.value = ""
+            isbn_input.value = ""
+        
+        e.page.update()
+
     return ft.Container (
         padding = 30,
         content = ft.Column (
             controls = [
                 ft.Text (
-                    "Registrar libro",
+                    "Registrar nuevo libro",
                     size = 24,
                     weight = ft.FontWeight.BOLD
                 ),
                 
                 ft.Text (
-                    "Capture los datos básicos del libro",
-                    size = 14,
+                    "Captura los datos básicos del libro",
+                    size = 24,
                     color = ft.Colors.BLUE_GREY_600
                 ),
                 
@@ -33,10 +62,13 @@ def libro_form():
                 isbn_input,
                 
                 ft.ElevatedButton (
-                    "Registrar libr",
-                    icon = ft-Icons.SAVE,
-                    
-                )
-            ]
+                    "Registrar libro",
+                    icon = ft.Icons.SAVE,
+                    on_click = guardar_libro
+                ),
+
+                mensaje
+            ],
+            spacing = 15
         )
     )
