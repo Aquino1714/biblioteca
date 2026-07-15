@@ -23,20 +23,27 @@ def main_window(page: ft.Page):
 
     # Widget de contenido
     contenido = ft.Container (
-        content = ft.Column (
-            controls = [
-                titulo,
-                subtitulo
-            ],
-            spacing = 10
-        ),
         padding = 30,
         expand = True,
         bgcolor = ft.Colors.WHITE
     )
 
-    def insertar_libros(e):
-        contenido.content = libro_form()
+    def inicio ():
+        return ft.Column (
+            controls = [
+                titulo,
+                subtitulo
+            ],
+            spacing = 10
+        )
+
+    def mostrar_inicio(e=None):
+        contenido.content = inicio()
+        page.update()
+
+
+    def mostrar_insertar_libros(e=None):
+        contenido.content = libro_form(mostrar_inicio)
         page.update()
 
     manu_lateral = ft.Container (
@@ -60,10 +67,16 @@ def main_window(page: ft.Page):
                 ft.Divider (color = ft.Colors.BLUE_GREY_700),
                 
                 ft.ElevatedButton (
+                    "Inicio",
+                    icon = ft.Icons.HOME,
+                    width = 180,
+                    on_click = mostrar_inicio
+                ),
+                ft.ElevatedButton (
                     "libros",
                     icon = ft.Icons.BOOK,
                     width = 180,
-                    on_click = insertar_libros
+                    on_click = mostrar_insertar_libros
                 ),
                 ft.ElevatedButton (
                     "usuarios",
@@ -95,3 +108,5 @@ def main_window(page: ft.Page):
     )
 
     page.add(layout)
+    
+    mostrar_inicio(None)  # Mostrar la pantalla de inicio al cargar la aplicación
